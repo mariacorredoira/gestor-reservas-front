@@ -1,0 +1,117 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <button type="button" class="btn p-0" routerLink="/login">
+                        &lt; Volver al login
+                    </button>
+
+                    <h3 class="text-center mb-4">Registro</h3>
+
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">
+
+                        <!-- Nombre -->
+                        <div class="mb-3">
+                            <label class="form-label">Nombre</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    formControlName="nombre"
+                                    placeholder="Introduce tu nombre">
+
+                            @if (registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched) {
+                                <div class="text-danger">
+                                    El nombre es obligatorio
+                                </div>
+                            }
+                        </div>
+
+                        <!-- Primer apellido -->
+                        <div class="mb-3">
+                            <label class="form-label">Primer apellido</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    formControlName="primerApellido"
+                                    placeholder="Introduce tu primer apellido">
+
+                            @if (registerForm.get('primerApellido')?.invalid && registerForm.get('primerApellido')?.touched) {
+                                <div class="text-danger">
+                                    El primer apellido es obligatorio
+                                </div>
+
+                            }
+
+                        </div>
+
+                        <!-- Segundo apellido -->
+                        <div class="mb-3">
+                            <label class="form-label">Segundo apellido</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    formControlName="segundoApellido"
+                                    placeholder="Introduce tu segundo apellido">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input
+                                    type="email"
+                                    class="form-control"
+                                    autocomplete="off"
+                                    formControlName="email"
+                                    placeholder="tuemail@ejemplo.com">
+
+                            @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+                                <div class="text-danger">
+                                    Introduce un email válido
+                                </div>
+                            }
+
+                        </div>
+
+                        <!-- Contraseña -->
+                        <div class="mb-3">
+                            <label class="form-label">Contraseña</label>
+                            <input
+                                    type="password"
+                                    class="form-control"
+                                    formControlName="password"
+                                    autocomplete="off"
+                                    placeholder="********">
+                            @if (registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched) {
+                                <div class="text-danger">
+                                    La contraseña es obligatoria
+                                </div>
+                            }
+
+                            @if (registerForm.get('password')?.hasError('passwordStrength') && registerForm.get('password')?.touched) {
+                                <div class="text-danger">
+                                    La contraseña debe contener al menos una mayúscula y un símbolo
+                                </div>
+                            }
+                            @if (registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched) {
+                                <div class="text-danger">
+                                    La contraseña debe tener al menos 6 caracteres
+                                </div>
+                            }
+
+                        </div>
+
+                        <button
+                                type="submit"
+                                class="btn btn-success w-100"
+                                [disabled]="registerForm.invalid">
+                            Registrarse
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
