@@ -1,0 +1,31 @@
+<div class="card shadow-0 border rounded-3">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+        <div class="bg-image hover-zoom ripple rounded ripple-surface">
+          <img src="{{reservation?.activity?.image}}"/>
+          <a href="#!">
+            <div class="hover-overlay">
+              <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col-xl-6">
+        <h5>{{ reservation?.activity?.name }}</h5>
+      </div>
+      <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+        <div class="d-flex flex-row align-items-center mb-1">
+          <h4 class="mb-1 me-1">{{
+              reservation?.activity?.date |
+                date:'dd/MM/yyyy HH:mm':'UTC'
+            }}</h4>
+        </div>
+        <div class="d-flex flex-column mt-4">
+          <button (click)="onSubmit()"  data-mdb-button-init data-mdb-ripple-init class="btn btn-danger btn-sm" type="button">Cancelar Reserva
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

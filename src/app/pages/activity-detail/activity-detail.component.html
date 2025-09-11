@@ -1,0 +1,30 @@
+
+<section class="py-5">
+  <div class="container">
+    <div class="row gx-5">
+      <aside class="col-lg-6">
+        <div class="border rounded-4 mb-3 d-flex justify-content-center">
+          <img src="{{details?.image}}"/>
+        </div>
+      </aside>
+      <main class="col-lg-6">
+        <div class="ps-lg-3">
+          <h4 class="title text-dark">
+            {{details?.name}}  <br />
+          </h4>
+          <div class="mb-3">
+            <span class="h5">{{ details?.date | date: 'dd/MM/yyyy HH:mm':'UTC' }}</span>
+          </div>
+          <p>
+         {{details?.description}}
+          </p>
+          <button (click)="onSubmit()" [disabled]="!details?.canReserve" class="btn btn-primary shadow-0 me-2"> <i class="me-1 fa fa-shopping-basket"></i> Reservar </button>
+          <a routerLink="/activities" class="btn btn-secondary shadow-0" > <i class="me-1 fa fa-shopping-basket"></i>  Volver </a>
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+
+
+

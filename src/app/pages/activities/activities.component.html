@@ -1,0 +1,11 @@
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-12 col-xl-10">
+        @for (activity of activities; track activity.id) {
+          <app-activity-card [activity]="activity"/>
+        }
+      </div>
+    </div>
+  </div>
+</section>
