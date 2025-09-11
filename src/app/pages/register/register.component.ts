@@ -1,7 +1,8 @@
+
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { passwordValidator } from "../../validators/password.validator";
-import { Router } from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import { HttpService } from "../../services/http/http.service";
 import { UserRequest } from "../../models/user-request.model";
 import { CommonModule } from "@angular/common";
@@ -9,10 +10,11 @@ import { ToastService } from "../../services/toast/toast.service";
 
 @Component({
     selector: 'app-register',
-    imports: [
-        ReactiveFormsModule,
-        CommonModule,
-    ],
+  imports: [
+    ReactiveFormsModule,
+    CommonModule,
+    RouterLink,
+  ],
     templateUrl: './register.component.html',
     styleUrl: './register.component.css'
 })
