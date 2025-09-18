@@ -1,0 +1,18 @@
+<section class="h-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-8">
+        <div class="card" style="border-radius: 10px;">
+          <div class="card-header px-4 py-5">
+            <h5 class="text-muted mb-0"> <span style="color: #a8729a;">USUARIOS</span></h5>
+          </div>
+          <div class="card-body p-4">
+            @for (user of users; track user.id) {
+              <app-user-card [user]="user" (userDeleted)="getUsers()"/>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
